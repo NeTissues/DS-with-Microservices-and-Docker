@@ -1,3 +1,0 @@
-Manifest-Version: 1.0
-Main-Class: br.edu.anhembi.sd.projetoa3.ProjetoA3Application
-
