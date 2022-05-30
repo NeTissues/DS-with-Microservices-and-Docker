@@ -12,7 +12,10 @@
   <modules>
     <module>User</module>
     <module>eureka-server</module>
-      <module>Order</module>
+    <module>Order</module>
+    <module>Product</module>
+    <module>Notification</module>
+    <module>Billing</module>
   </modules>
 
   <name>microservices</name>

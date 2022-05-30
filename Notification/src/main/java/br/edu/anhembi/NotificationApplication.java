@@ -1,13 +1,11 @@
-package br.edu.anhembi.products;
+package br.edu.anhembi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProductsApplication {
-
+public class NotificationApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ProductsApplication.class, args);
+        SpringApplication.run(NotificationApplication.class, args);
     }
-
 }

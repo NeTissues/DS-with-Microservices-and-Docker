@@ -1,4 +1,4 @@
-package br.edu.anhembi.products;
+package br.edu.anhembi.product;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
