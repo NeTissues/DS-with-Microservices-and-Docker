@@ -20,7 +20,7 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String firstName;
-    private String secondName;
+    private String lastName;
     private String username;
     private String password;
     private String email;

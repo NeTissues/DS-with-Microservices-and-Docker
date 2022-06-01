@@ -14,7 +14,7 @@ public class UserService {
     public void registerUser(UserRegistrationRequest userRegistrationRequest){
         Users users = Users.builder()
                 .firstName(userRegistrationRequest.firstName())
-                .secondName(userRegistrationRequest.secondName())
+                .lastName(userRegistrationRequest.lastName())
                 .username(userRegistrationRequest.username())
                 .password(userRegistrationRequest.password())
                 .email(userRegistrationRequest.email())

@@ -1,11 +1,17 @@
 package br.edu.anhembi.controller;
 
 import br.edu.anhembi.model.UserRegistrationRequest;
+import br.edu.anhembi.model.Users;
+import br.edu.anhembi.model.repository.UserRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("api/v1/user")
@@ -13,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     private final UserService userService;
+    private final UserRepository userRepository;
 
     @PostMapping
     public void registerUser(@RequestBody UserRegistrationRequest userRegistrationRequest){
@@ -20,9 +27,38 @@ public class UserController {
         userService.registerUser(userRegistrationRequest);
     }
 
-    //todo: get mapping
+    @GetMapping
+    public List<Users> getAllUsers() {
+        return userRepository.findAll();
+    }
 
-    //todo: put mapping
+    @GetMapping(path = "{userId}")
+    public ResponseEntity<Users> getUserById(@PathVariable(value = "userId") Long userId) throws UserNotFoundException {
+        Users users = userRepository.findById(userId)
+                .orElseThrow(() -> new UserNotFoundException(userId));
+        return ResponseEntity.ok().body(users);
+    }
 
-    //todo: delete mapping
+    @PutMapping(path = "{userId}")
+    public ResponseEntity<Users> updateUser(@PathVariable(value = "userId") Long userId,
+                                            @Valid @RequestBody Users userDetails) throws UserNotFoundException {
+        Users users = userRepository.findById(userId)
+                .orElseThrow(() -> new UserNotFoundException(userId));
+
+        users.setFirstName(userDetails.getFirstName());
+        users.setLastName(userDetails.getLastName());
+        users.setUsername(userDetails.getUsername());
+        users.setPassword(userDetails.getPassword());
+        users.setEmail(userDetails.getEmail());
+        
+        final Users updatedUser = userRepository.save(users);
+        return ResponseEntity.ok(updatedUser);
+    }
+
+    @DeleteMapping(path = "{userId}")
+    public void deleteUser(@PathVariable(value = "userId") Long userId) throws UserNotFoundException {
+        Users users = userRepository.findById(userId)
+                .orElseThrow(() -> new UserNotFoundException(userId));
+        userRepository.delete(users);
+    }
 }
