@@ -20,8 +20,8 @@ public class Notifications {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Integer toCustomerId;
-    private String toCustomerEmail;
+    private Integer userId;
+    private String userEmail;
     private String message;
     private LocalDateTime sentAt;
 }

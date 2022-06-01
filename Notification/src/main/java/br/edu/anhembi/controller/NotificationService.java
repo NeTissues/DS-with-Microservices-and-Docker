@@ -16,8 +16,8 @@ public class NotificationService {
     public void send(NotificationRegistrationRequest notificationRequest) {
         notificationRepository.save(
                 Notifications.builder()
-                        .toCustomerId(notificationRequest.customerId())
-                        .toCustomerEmail(notificationRequest.customerEmail())
+                        .userId(notificationRequest.userId())
+                        .userEmail(notificationRequest.userEmail())
                         .message(notificationRequest.message())
                         .sentAt(LocalDateTime.now())
                         .build()

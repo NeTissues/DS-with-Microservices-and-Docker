@@ -4,8 +4,8 @@ import java.time.LocalDateTime;
 
 public record NotificationRegistrationRequest(
         Long id,
-        Integer customerId,
-        String customerEmail,
+        Integer userId,
+        String userEmail,
         String message,
         LocalDateTime sentAt) {
 }
