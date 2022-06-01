@@ -1,4 +1,10 @@
 package br.edu.anhembi.model;
 
-public class OrderRegistrationRequest {
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+public record OrderRegistrationRequest(
+        BigDecimal totalPrice,
+        LocalDateTime date,
+        Long userId) {
 }
