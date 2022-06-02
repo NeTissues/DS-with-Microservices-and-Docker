@@ -47,7 +47,7 @@ public class UserController {
         users.setUsername(userDetails.getUsername());
         users.setPassword(userDetails.getPassword());
         users.setEmail(userDetails.getEmail());
-        
+
         final Users updatedUser = userRepository.save(users);
         return ResponseEntity.ok(updatedUser);
     }
