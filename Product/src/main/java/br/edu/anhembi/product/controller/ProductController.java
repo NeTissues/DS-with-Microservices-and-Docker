@@ -1,8 +1,10 @@
 package br.edu.anhembi.product.controller;
 
 import br.edu.anhembi.product.model.Product;
-import br.edu.anhembi.product.model.ProductRegistrationRequest;
 import br.edu.anhembi.product.model.repository.ProductRepository;
+import br.edu.anhembi.model.Users;
+import br.edu.anhembi.product.model.ProductOrderRegistrationRequest;
+import br.edu.anhembi.product.model.ProductRegistrationRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +25,12 @@ public class ProductController {
     public void registerProduct(@RequestBody ProductRegistrationRequest productRegistrationRequest){
         //todo: log this
         productService.registerProduct(productRegistrationRequest);
+    }
+
+    @PostMapping(path = "register-order")
+    public ResponseEntity<Users> registerOrderProduct(@RequestBody ProductOrderRegistrationRequest productOrderRegistrationRequest){
+        ResponseEntity<Users> user = productService.registerProductOrder(productOrderRegistrationRequest);
+        return user;
     }
 
     @GetMapping

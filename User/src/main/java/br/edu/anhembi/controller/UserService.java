@@ -1,7 +1,7 @@
 package br.edu.anhembi.controller;
 
-import br.edu.anhembi.model.Users;
 import br.edu.anhembi.model.UserRegistrationRequest;
+import br.edu.anhembi.model.Users;
 import br.edu.anhembi.model.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

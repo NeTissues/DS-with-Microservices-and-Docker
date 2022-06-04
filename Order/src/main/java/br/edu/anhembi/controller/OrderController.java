@@ -3,6 +3,7 @@ package br.edu.anhembi.controller;
 import br.edu.anhembi.model.OrderRegistrationRequest;
 import br.edu.anhembi.model.Orders;
 import br.edu.anhembi.model.repository.OrderRepository;
+import br.edu.anhembi.order.OrderInsertProduct;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

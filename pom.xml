@@ -16,6 +16,7 @@
     <module>Product</module>
     <module>Notification</module>
     <module>Payment</module>
+      <module>clients</module>
   </modules>
 
   <name>microservices</name>

@@ -1,7 +1,7 @@
 package br.edu.anhembi.controller;
 
-import br.edu.anhembi.model.Orders;
 import br.edu.anhembi.model.OrderRegistrationRequest;
+import br.edu.anhembi.model.Orders;
 import br.edu.anhembi.model.repository.OrderRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
