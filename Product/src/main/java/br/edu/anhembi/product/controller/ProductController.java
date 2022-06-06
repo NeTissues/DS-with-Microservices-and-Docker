@@ -1,5 +1,6 @@
 package br.edu.anhembi.product.controller;
 
+import br.edu.anhembi.model.Orders;
 import br.edu.anhembi.product.model.Product;
 import br.edu.anhembi.product.model.repository.ProductRepository;
 import br.edu.anhembi.model.Users;
@@ -28,9 +29,20 @@ public class ProductController {
     }
 
     @PostMapping(path = "register-order")
-    public ResponseEntity<Users> registerOrderProduct(@RequestBody ProductOrderRegistrationRequest productOrderRegistrationRequest){
-        ResponseEntity<Users> user = productService.registerProductOrder(productOrderRegistrationRequest);
-        return user;
+    public ResponseEntity<Orders> registerOrderProduct(@RequestBody ProductOrderRegistrationRequest productOrderRegistrationRequest){
+        ResponseEntity<Users> user = productService.checkUser(productOrderRegistrationRequest);
+        ResponseEntity<Orders> order;
+        if(user.hasBody()){
+            order = productService.checkProductOrder(productOrderRegistrationRequest);
+            if(order.hasBody()){
+                //order = productService.updateProductOrder(productOrderRegistrationRequest);
+            }else{
+                //order = productService.createProductOrder(productOrderRegistrationRequest);
+            }
+        }else{
+            order = null;
+        }
+        return order;
     }
 
     @GetMapping

@@ -17,7 +17,7 @@ public class PaymentService {
         Payment payment = Payment.builder()
                 .orderId(paymentRegistrationRequest.orderId())
                 .userId(paymentRegistrationRequest.userId())
-                .orderStatus(paymentRegistrationRequest.orderStatus())
+                .paymentStatus(paymentRegistrationRequest.paymentStatus())
                 .paymentMethod(paymentRegistrationRequest.paymentMethod())
                 .paymentTime(LocalDateTime.now())
                 .build();

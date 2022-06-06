@@ -45,7 +45,7 @@ public class PaymentController {
 
         payment.setOrderId(paymentDetails.getOrderId());
         payment.setUserId(paymentDetails.getUserId());
-        payment.setOrderStatus(paymentDetails.getOrderStatus());
+        payment.setPaymentStatus(paymentDetails.getPaymentStatus());
         payment.setPaymentMethod((paymentDetails.getPaymentMethod()));
         payment.setPaymentTime(LocalDateTime.now());
 

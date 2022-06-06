@@ -1,9 +1,9 @@
 package br.edu.anhembi.controller;
 
 import br.edu.anhembi.model.OrderRegistrationRequest;
+import br.edu.anhembi.model.OrderStatus;
 import br.edu.anhembi.model.Orders;
 import br.edu.anhembi.model.repository.OrderRepository;
-import br.edu.anhembi.order.OrderInsertProduct;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -34,6 +34,13 @@ public class OrderController {
     public ResponseEntity<Orders> getOrderById(@PathVariable(value = "orderId") Long orderId) throws OrderNotFoundException {
         Orders orders = orderRepository.findById(orderId)
                 .orElseThrow(() -> new OrderNotFoundException(orderId));
+        return ResponseEntity.ok().body(orders);
+    }
+
+    @GetMapping(path = "userId/{userId}/{orderStatus}")
+    public ResponseEntity<Orders> findTopByUserIdAndOrderStatus(@PathVariable(value = "userId") Long userId, @PathVariable(value = "orderStatus")OrderStatus orderStatus) throws OrderNotFoundException {
+        Orders orders = orderRepository.findTopByUserIdAndOrderStatus(userId,orderStatus)
+                .orElseThrow(() -> new OrderNotFoundException(userId));
         return ResponseEntity.ok().body(orders);
     }
 

@@ -4,9 +4,9 @@ import java.time.LocalDateTime;
 
 public record PaymentRegistrationRequest(
         Long id,
-         Long orderId,
-         Long userId,
-         OrderStatus orderStatus,
-         String paymentMethod,
-         LocalDateTime paymentTime) {
+        Long orderId,
+        Long userId,
+        PaymentStatus paymentStatus,
+        String paymentMethod,
+        LocalDateTime paymentTime) {
 }

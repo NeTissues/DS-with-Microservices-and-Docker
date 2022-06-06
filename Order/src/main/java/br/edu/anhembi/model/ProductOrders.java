@@ -1,5 +1,4 @@
 package br.edu.anhembi.model;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,12 +13,19 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Orders {
+public class ProductOrders {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private BigDecimal totalPrice;
-    private LocalDateTime date;
+
+    @Column(name = "unit_price")
+    private BigDecimal unitPrice;
+    private int quantity;
     private OrderStatus orderStatus;
-    private Long userId;
+
+    @ManyToOne
+    private Orders order;
+
+    private LocalDateTime addedAt;
+
 }

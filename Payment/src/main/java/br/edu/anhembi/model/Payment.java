@@ -22,7 +22,7 @@ public class Payment {
     private Long id;
     private Long orderId;
     private Long userId;
-    private OrderStatus orderStatus;
+    private PaymentStatus paymentStatus;
     private String paymentMethod;
     private LocalDateTime paymentTime;
 }
